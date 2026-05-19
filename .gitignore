@@ -1,0 +1,17 @@
+node_modules
+.cloudflare-state
+
+# Local environment and Wrangler dev vars
+**/.env.local
+**/.env.*.local
+**/.dev.vars
+**/.dev.vars.*
+!**/.env.example
+!**/.dev.vars.example
+
+# Build outputs
+dist/
+.astro/
+
+# TypeScript build info
+*.tsbuildinfo

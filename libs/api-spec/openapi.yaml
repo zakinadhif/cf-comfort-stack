@@ -1,0 +1,133 @@
+openapi: 3.1.0
+info:
+  title: Api
+  version: 0.1.0
+  description: API specification for my-app
+servers:
+  - url: /api
+    description: Base API path
+  - url: http://localhost:8787/api
+    description: Local Wrangler dev server
+tags:
+  - name: health
+    description: Health check operations
+  - name: items
+    description: Item CRUD operations
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags:
+        - health
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+  /items:
+    get:
+      operationId: listItems
+      tags:
+        - items
+      summary: List items
+      description: Returns all items
+      responses:
+        "200":
+          description: A list of items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Item"
+    post:
+      operationId: createItem
+      tags:
+        - items
+      summary: Create an item
+      description: Creates a new item
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateItemRequest"
+      responses:
+        "201":
+          description: Created item
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Item"
+  /items/{itemId}:
+    get:
+      operationId: getItem
+      tags:
+        - items
+      summary: Get an item
+      description: Returns a specific item by id
+      parameters:
+        - $ref: "#/components/parameters/ItemId"
+      responses:
+        "200":
+          description: Item details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Item"
+        "404":
+          description: Item not found
+    delete:
+      operationId: deleteItem
+      tags:
+        - items
+      summary: Delete an item
+      description: Deletes a specific item by id
+      parameters:
+        - $ref: "#/components/parameters/ItemId"
+      responses:
+        "204":
+          description: Item deleted
+        "404":
+          description: Item not found
+components:
+  parameters:
+    ItemId:
+      name: itemId
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+    Item:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        createdAt:
+          type: integer
+          description: Unix epoch milliseconds
+      required:
+        - id
+        - name
+        - createdAt
+    CreateItemRequest:
+      type: object
+      properties:
+        name:
+          type: string
+      required:
+        - name

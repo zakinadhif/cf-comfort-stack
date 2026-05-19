@@ -1,0 +1,6 @@
+# Copy to .dev.vars and fill in your values.
+# This file is safe to commit. .dev.vars is gitignored.
+GOOGLE_CLIENT_ID=your-google-client-id.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+BETTER_AUTH_URL=http://localhost:5173
+ALLOWED_ORIGINS=http://localhost:5173,http://127.0.0.1:5173,http://localhost:4321,http://127.0.0.1:4321

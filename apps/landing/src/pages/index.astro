@@ -1,0 +1,79 @@
+---
+const appUrl = import.meta.env.PUBLIC_APP_URL || "http://localhost:5173";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My App</title>
+    <meta name="description" content="My App — built on the Cloudflare stack" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        background: #09090b;
+        color: #fafafa;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        padding: 2rem;
+        text-align: center;
+      }
+      h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.02em; }
+      p { color: #a1a1aa; font-size: 1.125rem; max-width: 36rem; line-height: 1.7; }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #fafafa;
+        color: #09090b;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: opacity 0.15s;
+      }
+      .cta:hover { opacity: 0.85; }
+      .stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+      .badge {
+        background: #18181b;
+        border: 1px solid #27272a;
+        color: #a1a1aa;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.8rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My App</h1>
+    <p>
+      A full-stack application running entirely on Cloudflare's infrastructure.
+      Fast, global, and serverless by default.
+    </p>
+    <a href={appUrl} class="cta">
+      Open App &rarr;
+    </a>
+    <div class="stack">
+      <span class="badge">Cloudflare Workers</span>
+      <span class="badge">Hono</span>
+      <span class="badge">React 19</span>
+      <span class="badge">Drizzle ORM</span>
+      <span class="badge">Better Auth</span>
+      <span class="badge">Orval</span>
+      <span class="badge">TanStack Query</span>
+      <span class="badge">Astro</span>
+    </div>
+  </body>
+</html>
