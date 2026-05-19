@@ -1,0 +1,15 @@
+# Normalize line endings to LF on commit for all text files
+* text=auto eol=lf
+
+# Windows batch scripts must use CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Force binary treatment for generated/binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary

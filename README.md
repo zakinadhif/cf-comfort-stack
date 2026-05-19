@@ -163,6 +163,10 @@ pnpm dev:app
 | `pnpm format` | Format all files with Biome |
 | `pnpm lint` | Lint all files with Biome (read-only) |
 | `pnpm lint:fix` | Lint and auto-fix all files with Biome |
+| `pnpm test:api` | Run Vitest unit tests for the API (`apps/api`) |
+| `pnpm test:api:watch` | Run Vitest in watch mode for the API |
+| `pnpm test:e2e` | Run Playwright E2E tests headlessly (`apps/app`) |
+| `pnpm test:e2e:ui` | Run Playwright E2E tests with the interactive UI runner |
 
 ---
 

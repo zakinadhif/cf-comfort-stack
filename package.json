@@ -12,6 +12,10 @@
     "db:studio:local": "pnpm run --filter @myapp/db db:studio:local",
     "db:studio:remote": "pnpm run --filter @myapp/db db:studio:remote",
     "codegen": "pnpm --filter @myapp/api-spec run codegen",
+    "test:api": "pnpm --filter api run test",
+    "test:api:watch": "pnpm --filter api run test:watch",
+    "test:e2e": "pnpm --filter app run test:e2e",
+    "test:e2e:ui": "pnpm --filter app run test:e2e:ui",
     "format": "biome format --write .",
     "lint": "biome check .",
     "lint:fix": "biome check --write ."

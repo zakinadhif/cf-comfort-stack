@@ -9,6 +9,12 @@ node_modules
 !**/.env.example
 !**/.dev.vars.example
 
+# Playwright
+**/test-results/
+**/playwright-report/
+**/blob-report/
+**/.playwright/
+
 # Build outputs
 dist/
 .astro/
